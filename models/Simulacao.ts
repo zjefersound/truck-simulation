@@ -131,4 +131,35 @@ export class Simulacao {
     const tempoDeEspera = this.getTempoDeEspera();
     return tempoDeEspera / this.atendimentos.length;
   }
+
+  getTaxaDeUtilizacaoDosPontos(): number[] {
+    const temposDeOcupacao = this.pontos.map((ponto) => {
+      const atendimentosDoPonto = this.atendimentos.filter(
+        (a) => a.pontoId === ponto.id
+      );
+
+      const tempoTotalOcupado = atendimentosDoPonto.reduce(
+        (total, atendimento) => {
+          return (
+            total + (atendimento.fim.getTime() - atendimento.inicio.getTime())
+          );
+        },
+        0
+      );
+
+      return tempoTotalOcupado;
+    });
+
+    const inicioSimulacao =
+      this.atendimentos.length > 0 ? this.atendimentos[0].inicio : new Date();
+    const fimSimulacao =
+      this.atendimentos.length > 0
+        ? this.atendimentos[this.atendimentos.length - 1].fim
+        : new Date();
+    const duracaoSimulacao = fimSimulacao.getTime() - inicioSimulacao.getTime();
+
+    return temposDeOcupacao.map(
+      (tempoOcupado) => tempoOcupado / duracaoSimulacao
+    );
+  }
 }

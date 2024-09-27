@@ -56,4 +56,12 @@ simulacao.executar(caminhoes).then(() => {
   console.log(
     `Tempo de espera médio: ${simulacao.getTempoDeEsperaMedio()} minutos`
   );
+  const taxasDeUtilizacao = simulacao.getTaxaDeUtilizacaoDosPontos();
+  taxasDeUtilizacao.forEach((taxa, index) => {
+    console.log(
+      `Taxa de utilização do ponto ${simulacao.pontos[index].id}: ${(
+        taxa * 100
+      ).toFixed(2)}%`
+    );
+  });
 });
