@@ -53,7 +53,9 @@ export class Simulacao {
       const ultimoAtendimento =
         atendimentosDoPonto[atendimentosDoPonto.length - 1];
       const horarioInicio =
-        ultimoAtendimento?.fim ?? proximoCaminhao.tempoChegada;
+        ultimoAtendimento?.fim > proximoCaminhao.tempoChegada
+          ? ultimoAtendimento?.fim
+          : proximoCaminhao.tempoChegada;
 
       proximoCaminhao.iniciarCarregamento(horarioInicio);
       pontoDisponivel.carregarCaminhao(proximoCaminhao);
