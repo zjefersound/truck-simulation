@@ -20,14 +20,19 @@ export class Simulacao {
       throw new Error("Dados insuficientes! Insira pelo menos 2 caminhões.");
 
     for (const caminhao of caminhoes) {
-      this.fila.adicionarCaminhao(caminhao);
-      console.log(
-        `[${printTime(caminhao.tempoChegada)}] Caminhão ${
-          caminhao.id
-        } adicionado à fila.`
-      );
-
-      this.processarFila();
+      const tempoChegadaAjustado =
+        (caminhao.tempoChegada.getTime() -
+          caminhoes[0].tempoChegada.getTime()) /
+        this.taxaDeTempo;
+      setTimeout(() => {
+        this.fila.adicionarCaminhao(caminhao);
+        console.log(
+          `[${printTime(caminhao.tempoChegada)}] Caminhão ${
+            caminhao.id
+          } adicionado à fila.`
+        );
+        this.processarFila();
+      }, tempoChegadaAjustado);
     }
   }
 
@@ -72,7 +77,6 @@ export class Simulacao {
         );
         this.processarFila(); // Processa o próximo caminhão
       }, tempoCarregamentoAjustado);
-
     } else if (proximoCaminhao) {
       console.log(
         `Caminhão ${proximoCaminhao.id} não pôde ser atendido. Pontos ocupados.`
