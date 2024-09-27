@@ -2,10 +2,17 @@ import { Caminhao } from "./models/Caminhao";
 import { PontoDeCarregamento } from "./models/PontoDeCarregamento";
 import { Simulacao } from "./models/Simulacao";
 
-// import data from "./data/small-data.json"; // 10 itens
+import data from "./data/small-data.json"; // 10 itens
 // import data from "./data/medium-data.json"; // 50 itens
-import data from "./data/large-data.json"; // 100 itens
+// import data from "./data/large-data.json"; // 100 itens
 import { printTime } from "./utils/printTime";
+import { CustoSimulacao } from "./models/CustoSimulacao";
+import {
+  custoFixoPorUtilizacao,
+  custoPorHoraDeEspera,
+  custoPorHoraPonto,
+} from "./constants";
+import { toCurrency } from "./utils/toCurrency";
 
 // Entidades
 // Caminhão: capacidade em toneladas, tempo de chegada, tempo de carregamento
@@ -85,4 +92,30 @@ simulacao.executar(caminhoes).then(() => {
       ).toFixed(1)}T`
     );
   });
+
+  console.log("-------------- Custos --------------");
+  const custoSimulacao = new CustoSimulacao(simulacao);
+
+  const custoOperacaoPontos =
+    custoSimulacao.getCustoOperacaoPontos(custoPorHoraPonto);
+
+  const custoEspera =
+    custoSimulacao.getCustoEsperaCaminhoes(custoPorHoraDeEspera);
+
+  const custoManutencao = custoSimulacao.getCustoManutencaoPontos(
+    custoFixoPorUtilizacao
+  );
+
+  const custoTotal = custoSimulacao.getCustoTotal(
+    custoPorHoraPonto,
+    custoPorHoraDeEspera,
+    custoFixoPorUtilizacao
+  );
+
+  console.log(`Custo espera: ${toCurrency(custoEspera)}`);
+  console.log(
+    `Manutençao dos pontos (custo fixo): ${toCurrency(custoManutencao)}`
+  );
+  console.log(`Operacao dos pontos: ${toCurrency(custoOperacaoPontos)}`);
+  console.log(`Total: ${toCurrency(custoTotal)}`);
 });
