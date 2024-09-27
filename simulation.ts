@@ -1,6 +1,4 @@
-import { Atendimento } from "./models/Atendimento";
 import { Caminhao } from "./models/Caminhao";
-import { Fila } from "./models/Fila";
 import { PontoDeCarregamento } from "./models/PontoDeCarregamento";
 import { Simulacao } from "./models/Simulacao";
 import data from "./data/large-data.json";
@@ -42,7 +40,7 @@ const pontos = [
   new PontoDeCarregamento("J", 20),
 ];
 
-const simulacao = new Simulacao(pontos, 900); // Taxa de tempo 60: 1 minuto = 1 segundo
+const simulacao = new Simulacao(pontos, 1200); // Taxa de tempo 60: 1 minuto = 1 segundo
 simulacao.executar(caminhoes).then(() => {
   console.log("=================RESULTADOS=================");
 
