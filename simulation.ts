@@ -23,25 +23,10 @@ import { Simulacao } from "./models/Simulacao";
 
 const caminhoes = [
   new Caminhao(10, new Date("2024-09-26T07:00:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T07:30:00.000Z")),
-  new Caminhao(12, new Date("2024-09-26T08:00:00.000Z")),
-  new Caminhao(8, new Date("2024-09-26T08:15:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T08:45:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T09:00:00.000Z")),
-  new Caminhao(12, new Date("2024-09-26T09:30:00.000Z")),
-  new Caminhao(8, new Date("2024-09-26T10:00:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T10:15:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T10:45:00.000Z")),
-  new Caminhao(12, new Date("2024-09-26T11:00:00.000Z")),
-  new Caminhao(8, new Date("2024-09-26T11:30:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T12:00:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T12:30:00.000Z")),
-  new Caminhao(12, new Date("2024-09-26T13:00:00.000Z")),
-  new Caminhao(8, new Date("2024-09-26T13:15:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T14:00:00.000Z")),
-  new Caminhao(10, new Date("2024-09-26T14:30:00.000Z")),
-  new Caminhao(12, new Date("2024-09-26T15:00:00.000Z")),
-  new Caminhao(8, new Date("2024-09-26T15:00:00.000Z")),
+  new Caminhao(10, new Date("2024-09-26T07:10:00.000Z")),
+  new Caminhao(10, new Date("2024-09-26T08:00:00.000Z")),
+  // new Caminhao(8, new Date("2024-09-26T08:15:00.000Z")),
+  // new Caminhao(10, new Date("2024-09-26T08:45:00.000Z")),
 ];
 
 // A unica unidade de medida linear é o momento do atendimento:
@@ -49,17 +34,19 @@ const caminhoes = [
 // O início do atendimento do próximo é feito com base no final do anterior
 
 const ponto1 = new PontoDeCarregamento(20);
-
-const simulacao = new Simulacao([ponto1]);
+const simulacao = new Simulacao([ponto1]); // Taxa de tempo 60: 1 minuto = 1 segundo
 simulacao.executar(caminhoes);
+console.log("=================RESULTADOS=================");
 
 console.log(
-  simulacao.atendimentos.map((ha) => ({
-    ...ha,
-    tempoEspera: ha.caminhao.getTempoDeEspera(),
-  }))
+  `Taxa De Chegada: ${simulacao
+    .getTaxaDeChegadaDosCaminhoes()
+    .toFixed(2)} caminhões por hora`
 );
-
-console.log(`Taxa De Chegada: ${simulacao.getTaxaDeChegadaDosCaminhoes().toFixed(2)} caminhões por hora`);
-console.log(`Tempo total do ciclo: ${simulacao.getTempoTotalDeCiclo()} minutos`);
-console.log(`Tempo de espera médio: ${simulacao.getTempoDeEsperaMedio()} minutos`);
+console.log(
+  `Tempo total do ciclo: ${simulacao.getTempoTotalDeCiclo()} minutos`
+);
+console.log(`Tempo de espera total: ${simulacao.getTempoDeEspera()} minutos`);
+console.log(
+  `Tempo de espera médio: ${simulacao.getTempoDeEsperaMedio()} minutos`
+);
