@@ -12,7 +12,7 @@ export class Simulacao {
   }
   executar(caminhoes: Caminhao[]) {
     if (caminhoes.length < 2)
-      console.error("Dados insuficientes! Insira pelo menos 2 caminhões.");
+      throw new Error("Dados insuficientes! Insira pelo menos 2 caminhões.");
 
     for (const caminhao of caminhoes) {
       this.fila.adicionarCaminhao(caminhao);
@@ -51,13 +51,14 @@ export class Simulacao {
     return duracaoEmMinutos;
   }
 
-  getTempoDeEsperaMedio(): number {
+  getTempoDeEspera(): number {
     const temposDeEspera = this.atendimentos.map((a) =>
       a.caminhao.getTempoDeEspera()
     );
-    const tempoDeEsperaMedio =
-      temposDeEspera.reduce((total, tempo) => total + tempo, 0) /
-      this.atendimentos.length;
-    return tempoDeEsperaMedio;
+    return temposDeEspera.reduce((total, tempo) => total + tempo, 0);
+  }
+  getTempoDeEsperaMedio(): number {
+    const tempoDeEspera = this.getTempoDeEspera();
+    return tempoDeEspera / this.atendimentos.length;
   }
 }
