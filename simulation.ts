@@ -1,7 +1,11 @@
 import { Caminhao } from "./models/Caminhao";
 import { PontoDeCarregamento } from "./models/PontoDeCarregamento";
 import { Simulacao } from "./models/Simulacao";
-import data from "./data/large-data.json";
+
+// import data from "./data/small-data.json"; // 10 itens
+// import data from "./data/medium-data.json"; // 50 itens
+import data from "./data/large-data.json"; // 100 itens
+
 // Entidades
 // Caminhão: capacidade em toneladas, tempo de chegada, tempo de carregamento
 // Ponto de Carregamento: capacidade de carga por hora, número de pontos
