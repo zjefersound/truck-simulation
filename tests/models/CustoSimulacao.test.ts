@@ -36,13 +36,13 @@ const mockSimulacao = (): Simulacao => {
   // Mock dos atendimentos
   simulacao.atendimentos = [
     new Atendimento(
-      mockCaminhao("1", 3600000), // Caminhão 1 com 1h de espera
+      mockCaminhao("1", 60), // Caminhão 1 com 1h de espera
       "ponto1",
       new Date("2023-09-25T10:00:00"),
       new Date("2023-09-25T11:00:00")
     ),
     new Atendimento(
-      mockCaminhao("2", 1800000), // Caminhão 2 com 30 minutos de espera
+      mockCaminhao("2", 30), // Caminhão 2 com 30 minutos de espera
       "ponto2",
       new Date("2023-09-25T10:30:00"),
       new Date("2023-09-25T12:00:00")

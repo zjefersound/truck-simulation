@@ -24,7 +24,7 @@ export class CustoSimulacao {
     );
 
     const custoTotal = temposDeEspera.reduce((total, tempoDeEspera) => {
-      const tempoEmHoras = tempoDeEspera / (1000 * 60 * 60);
+      const tempoEmHoras = tempoDeEspera / 60;
       return total + tempoEmHoras * custoPorHoraDeEspera;
     }, 0);
 
