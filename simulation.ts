@@ -3,7 +3,7 @@ import { Caminhao } from "./models/Caminhao";
 import { Fila } from "./models/Fila";
 import { PontoDeCarregamento } from "./models/PontoDeCarregamento";
 import { Simulacao } from "./models/Simulacao";
-
+import data from "./data/large-data.json";
 // Entidades
 // Caminhão: capacidade em toneladas, tempo de chegada, tempo de carregamento
 // Ponto de Carregamento: capacidade de carga por hora, número de pontos
@@ -21,23 +21,28 @@ import { Simulacao } from "./models/Simulacao";
 
 // Classe Caminhão
 
-const caminhoes = [
-  new Caminhao("1", 10, new Date("2024-09-26T07:00:00.000Z")),
-  new Caminhao("2", 10, new Date("2024-09-26T07:10:00.000Z")),
-  new Caminhao("3", 10, new Date("2024-09-26T07:20:00.000Z")),
-  // new Caminhao("3", 10, new Date("2024-09-26T08:00:00.000Z")),
-  // new Caminhao(8, new Date("2024-09-26T08:15:00.000Z")),
-  // new Caminhao(10, new Date("2024-09-26T08:45:00.000Z")),
-];
+const caminhoes = data.map(
+  (item) => new Caminhao(item.id, item.capacidade, new Date(item.tempoChegada))
+);
 
 // A unica unidade de medida linear é o momento do atendimento:
 // Um caminhão chega e é atendido em X minutos.
 // O início do atendimento do próximo é feito com base no final do anterior
 
-const ponto1 = new PontoDeCarregamento('A', 20);
-const ponto2 = new PontoDeCarregamento('B', 20);
+const pontos = [
+  new PontoDeCarregamento("A", 20),
+  new PontoDeCarregamento("B", 20),
+  new PontoDeCarregamento("C", 20),
+  new PontoDeCarregamento("D", 20),
+  new PontoDeCarregamento("E", 20),
+  new PontoDeCarregamento("F", 20),
+  new PontoDeCarregamento("G", 20),
+  new PontoDeCarregamento("H", 20),
+  new PontoDeCarregamento("I", 20),
+  new PontoDeCarregamento("J", 20),
+];
 
-const simulacao = new Simulacao([ponto1, ponto2], 300); // Taxa de tempo 60: 1 minuto = 1 segundo
+const simulacao = new Simulacao(pontos, 900); // Taxa de tempo 60: 1 minuto = 1 segundo
 simulacao.executar(caminhoes).then(() => {
   console.log("=================RESULTADOS=================");
 
@@ -54,4 +59,3 @@ simulacao.executar(caminhoes).then(() => {
     `Tempo de espera médio: ${simulacao.getTempoDeEsperaMedio()} minutos`
   );
 });
-

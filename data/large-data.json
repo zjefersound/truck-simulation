@@ -1,0 +1,498 @@
+[
+  {
+    "id": "1",
+    "capacidade": 13.67,
+    "tempoChegada": "2024-09-26T07:06:00.000000Z"
+  },
+  {
+    "id": "2",
+    "capacidade": 6.22,
+    "tempoChegada": "2024-09-26T07:12:00.000000Z"
+  },
+  {
+    "id": "3",
+    "capacidade": 8.11,
+    "tempoChegada": "2024-09-26T07:18:00.000000Z"
+  },
+  { "id": "4", "capacidade": 7.7, "tempoChegada": "2024-09-26T07:24:00.000000Z" },
+  {
+    "id": "5",
+    "capacidade": 20.62,
+    "tempoChegada": "2024-09-26T07:30:00.000000Z"
+  },
+  {
+    "id": "6",
+    "capacidade": 10.28,
+    "tempoChegada": "2024-09-26T07:36:00.000000Z"
+  },
+  {
+    "id": "7",
+    "capacidade": 17.93,
+    "tempoChegada": "2024-09-26T07:42:00.000000Z"
+  },
+  {
+    "id": "8",
+    "capacidade": 13.85,
+    "tempoChegada": "2024-09-26T07:48:00.000000Z"
+  },
+  {
+    "id": "9",
+    "capacidade": 19.73,
+    "tempoChegada": "2024-09-26T07:54:00.000000Z"
+  },
+  {
+    "id": "10",
+    "capacidade": 26.07,
+    "tempoChegada": "2024-09-26T08:00:00.000000Z"
+  },
+  {
+    "id": "11",
+    "capacidade": 27.2,
+    "tempoChegada": "2024-09-26T08:06:00.000000Z"
+  },
+  {
+    "id": "12",
+    "capacidade": 18.74,
+    "tempoChegada": "2024-09-26T08:12:00.000000Z"
+  },
+  {
+    "id": "13",
+    "capacidade": 16.95,
+    "tempoChegada": "2024-09-26T08:18:00.000000Z"
+  },
+  {
+    "id": "14",
+    "capacidade": 20.0,
+    "tempoChegada": "2024-09-26T08:24:00.000000Z"
+  },
+  {
+    "id": "15",
+    "capacidade": 9.68,
+    "tempoChegada": "2024-09-26T08:30:00.000000Z"
+  },
+  {
+    "id": "16",
+    "capacidade": 10.79,
+    "tempoChegada": "2024-09-26T08:36:00.000000Z"
+  },
+  {
+    "id": "17",
+    "capacidade": 7.85,
+    "tempoChegada": "2024-09-26T08:42:00.000000Z"
+  },
+  {
+    "id": "18",
+    "capacidade": 20.43,
+    "tempoChegada": "2024-09-26T08:48:00.000000Z"
+  },
+  {
+    "id": "19",
+    "capacidade": 6.43,
+    "tempoChegada": "2024-09-26T08:54:00.000000Z"
+  },
+  {
+    "id": "20",
+    "capacidade": 9.13,
+    "tempoChegada": "2024-09-26T09:00:00.000000Z"
+  },
+  {
+    "id": "21",
+    "capacidade": 21.34,
+    "tempoChegada": "2024-09-26T09:06:00.000000Z"
+  },
+  {
+    "id": "22",
+    "capacidade": 28.66,
+    "tempoChegada": "2024-09-26T09:12:00.000000Z"
+  },
+  {
+    "id": "23",
+    "capacidade": 26.1,
+    "tempoChegada": "2024-09-26T09:18:00.000000Z"
+  },
+  {
+    "id": "24",
+    "capacidade": 14.53,
+    "tempoChegada": "2024-09-26T09:24:00.000000Z"
+  },
+  {
+    "id": "25",
+    "capacidade": 18.77,
+    "tempoChegada": "2024-09-26T09:30:00.000000Z"
+  },
+  {
+    "id": "26",
+    "capacidade": 28.0,
+    "tempoChegada": "2024-09-26T09:36:00.000000Z"
+  },
+  {
+    "id": "27",
+    "capacidade": 7.63,
+    "tempoChegada": "2024-09-26T09:42:00.000000Z"
+  },
+  {
+    "id": "28",
+    "capacidade": 27.18,
+    "tempoChegada": "2024-09-26T09:48:00.000000Z"
+  },
+  {
+    "id": "29",
+    "capacidade": 8.03,
+    "tempoChegada": "2024-09-26T09:54:00.000000Z"
+  },
+  {
+    "id": "30",
+    "capacidade": 29.34,
+    "tempoChegada": "2024-09-26T10:00:00.000000Z"
+  },
+  {
+    "id": "31",
+    "capacidade": 23.04,
+    "tempoChegada": "2024-09-26T10:06:00.000000Z"
+  },
+  {
+    "id": "32",
+    "capacidade": 18.97,
+    "tempoChegada": "2024-09-26T10:12:00.000000Z"
+  },
+  {
+    "id": "33",
+    "capacidade": 8.15,
+    "tempoChegada": "2024-09-26T10:18:00.000000Z"
+  },
+  {
+    "id": "34",
+    "capacidade": 6.75,
+    "tempoChegada": "2024-09-26T10:24:00.000000Z"
+  },
+  {
+    "id": "35",
+    "capacidade": 24.02,
+    "tempoChegada": "2024-09-26T10:30:00.000000Z"
+  },
+  {
+    "id": "36",
+    "capacidade": 22.79,
+    "tempoChegada": "2024-09-26T10:36:00.000000Z"
+  },
+  {
+    "id": "37",
+    "capacidade": 13.62,
+    "tempoChegada": "2024-09-26T10:42:00.000000Z"
+  },
+  {
+    "id": "38",
+    "capacidade": 12.71,
+    "tempoChegada": "2024-09-26T10:48:00.000000Z"
+  },
+  {
+    "id": "39",
+    "capacidade": 11.35,
+    "tempoChegada": "2024-09-26T10:54:00.000000Z"
+  },
+  {
+    "id": "40",
+    "capacidade": 27.28,
+    "tempoChegada": "2024-09-26T11:00:00.000000Z"
+  },
+  {
+    "id": "41",
+    "capacidade": 23.83,
+    "tempoChegada": "2024-09-26T11:06:00.000000Z"
+  },
+  {
+    "id": "42",
+    "capacidade": 10.12,
+    "tempoChegada": "2024-09-26T11:12:00.000000Z"
+  },
+  {
+    "id": "43",
+    "capacidade": 16.49,
+    "tempoChegada": "2024-09-26T11:18:00.000000Z"
+  },
+  {
+    "id": "44",
+    "capacidade": 6.17,
+    "tempoChegada": "2024-09-26T11:24:00.000000Z"
+  },
+  {
+    "id": "45",
+    "capacidade": 15.44,
+    "tempoChegada": "2024-09-26T11:30:00.000000Z"
+  },
+  {
+    "id": "46",
+    "capacidade": 21.89,
+    "tempoChegada": "2024-09-26T11:36:00.000000Z"
+  },
+  {
+    "id": "47",
+    "capacidade": 6.4,
+    "tempoChegada": "2024-09-26T11:42:00.000000Z"
+  },
+  {
+    "id": "48",
+    "capacidade": 27.22,
+    "tempoChegada": "2024-09-26T11:48:00.000000Z"
+  },
+  {
+    "id": "49",
+    "capacidade": 28.44,
+    "tempoChegada": "2024-09-26T11:54:00.000000Z"
+  },
+  {
+    "id": "50",
+    "capacidade": 22.07,
+    "tempoChegada": "2024-09-26T12:00:00.000000Z"
+  },
+  {
+    "id": "51",
+    "capacidade": 6.62,
+    "tempoChegada": "2024-09-26T12:06:00.000000Z"
+  },
+  {
+    "id": "52",
+    "capacidade": 15.3,
+    "tempoChegada": "2024-09-26T12:12:00.000000Z"
+  },
+  {
+    "id": "53",
+    "capacidade": 25.12,
+    "tempoChegada": "2024-09-26T12:18:00.000000Z"
+  },
+  {
+    "id": "54",
+    "capacidade": 22.69,
+    "tempoChegada": "2024-09-26T12:24:00.000000Z"
+  },
+  {
+    "id": "55",
+    "capacidade": 9.87,
+    "tempoChegada": "2024-09-26T12:30:00.000000Z"
+  },
+  {
+    "id": "56",
+    "capacidade": 17.19,
+    "tempoChegada": "2024-09-26T12:36:00.000000Z"
+  },
+  {
+    "id": "57",
+    "capacidade": 5.64,
+    "tempoChegada": "2024-09-26T12:42:00.000000Z"
+  },
+  {
+    "id": "58",
+    "capacidade": 19.9,
+    "tempoChegada": "2024-09-26T12:48:00.000000Z"
+  },
+  {
+    "id": "59",
+    "capacidade": 13.11,
+    "tempoChegada": "2024-09-26T12:54:00.000000Z"
+  },
+  {
+    "id": "60",
+    "capacidade": 17.36,
+    "tempoChegada": "2024-09-26T13:00:00.000000Z"
+  },
+  {
+    "id": "61",
+    "capacidade": 14.76,
+    "tempoChegada": "2024-09-26T13:06:00.000000Z"
+  },
+  {
+    "id": "62",
+    "capacidade": 11.37,
+    "tempoChegada": "2024-09-26T13:12:00.000000Z"
+  },
+  {
+    "id": "63",
+    "capacidade": 21.89,
+    "tempoChegada": "2024-09-26T13:18:00.000000Z"
+  },
+  {
+    "id": "64",
+    "capacidade": 7.8,
+    "tempoChegada": "2024-09-26T13:24:00.000000Z"
+  },
+  {
+    "id": "65",
+    "capacidade": 8.24,
+    "tempoChegada": "2024-09-26T13:30:00.000000Z"
+  },
+  {
+    "id": "66",
+    "capacidade": 7.03,
+    "tempoChegada": "2024-09-26T13:36:00.000000Z"
+  },
+  {
+    "id": "67",
+    "capacidade": 7.29,
+    "tempoChegada": "2024-09-26T13:42:00.000000Z"
+  },
+  {
+    "id": "68",
+    "capacidade": 23.71,
+    "tempoChegada": "2024-09-26T13:48:00.000000Z"
+  },
+  {
+    "id": "69",
+    "capacidade": 5.19,
+    "tempoChegada": "2024-09-26T13:54:00.000000Z"
+  },
+  {
+    "id": "70",
+    "capacidade": 19.31,
+    "tempoChegada": "2024-09-26T14:00:00.000000Z"
+  },
+  {
+    "id": "71",
+    "capacidade": 19.12,
+    "tempoChegada": "2024-09-26T14:06:00.000000Z"
+  },
+  {
+    "id": "72",
+    "capacidade": 9.68,
+    "tempoChegada": "2024-09-26T14:12:00.000000Z"
+  },
+  {
+    "id": "73",
+    "capacidade": 21.5,
+    "tempoChegada": "2024-09-26T14:18:00.000000Z"
+  },
+  {
+    "id": "74",
+    "capacidade": 10.8,
+    "tempoChegada": "2024-09-26T14:24:00.000000Z"
+  },
+  {
+    "id": "75",
+    "capacidade": 14.87,
+    "tempoChegada": "2024-09-26T14:30:00.000000Z"
+  },
+  {
+    "id": "76",
+    "capacidade": 18.36,
+    "tempoChegada": "2024-09-26T14:36:00.000000Z"
+  },
+  {
+    "id": "77",
+    "capacidade": 13.45,
+    "tempoChegada": "2024-09-26T14:42:00.000000Z"
+  },
+  {
+    "id": "78",
+    "capacidade": 9.24,
+    "tempoChegada": "2024-09-26T14:48:00.000000Z"
+  },
+  {
+    "id": "79",
+    "capacidade": 17.66,
+    "tempoChegada": "2024-09-26T14:54:00.000000Z"
+  },
+  {
+    "id": "80",
+    "capacidade": 7.66,
+    "tempoChegada": "2024-09-26T15:00:00.000000Z"
+  },
+  {
+    "id": "81",
+    "capacidade": 18.83,
+    "tempoChegada": "2024-09-26T15:06:00.000000Z"
+  },
+  {
+    "id": "82",
+    "capacidade": 18.74,
+    "tempoChegada": "2024-09-26T15:12:00.000000Z"
+  },
+  {
+    "id": "83",
+    "capacidade": 7.21,
+    "tempoChegada": "2024-09-26T15:18:00.000000Z"
+  },
+  {
+    "id": "84",
+    "capacidade": 5.97,
+    "tempoChegada": "2024-09-26T15:24:00.000000Z"
+  },
+  {
+    "id": "85",
+    "capacidade": 27.21,
+    "tempoChegada": "2024-09-26T15:30:00.000000Z"
+  },
+  {
+    "id": "86",
+    "capacidade": 23.81,
+    "tempoChegada": "2024-09-26T15:36:00.000000Z"
+  },
+  {
+    "id": "87",
+    "capacidade": 15.99,
+    "tempoChegada": "2024-09-26T15:42:00.000000Z"
+  },
+  {
+    "id": "88",
+    "capacidade": 29.63,
+    "tempoChegada": "2024-09-26T15:48:00.000000Z"
+  },
+  {
+    "id": "89",
+    "capacidade": 23.14,
+    "tempoChegada": "2024-09-26T15:54:00.000000Z"
+  },
+  {
+    "id": "90",
+    "capacidade": 25.32,
+    "tempoChegada": "2024-09-26T16:00:00.000000Z"
+  },
+  {
+    "id": "91",
+    "capacidade": 23.76,
+    "tempoChegada": "2024-09-26T16:06:00.000000Z"
+  },
+  {
+    "id": "92",
+    "capacidade": 24.22,
+    "tempoChegada": "2024-09-26T16:12:00.000000Z"
+  },
+  {
+    "id": "93",
+    "capacidade": 21.07,
+    "tempoChegada": "2024-09-26T16:18:00.000000Z"
+  },
+  {
+    "id": "94",
+    "capacidade": 11.15,
+    "tempoChegada": "2024-09-26T16:24:00.000000Z"
+  },
+  {
+    "id": "95",
+    "capacidade": 20.98,
+    "tempoChegada": "2024-09-26T16:30:00.000000Z"
+  },
+  {
+    "id": "96",
+    "capacidade": 28.7,
+    "tempoChegada": "2024-09-26T16:36:00.000000Z"
+  },
+  {
+    "id": "97",
+    "capacidade": 19.45,
+    "tempoChegada": "2024-09-26T16:42:00.000000Z"
+  },
+  {
+    "id": "98",
+    "capacidade": 21.11,
+    "tempoChegada": "2024-09-26T16:48:00.000000Z"
+  },
+  {
+    "id": "99",
+    "capacidade": 13.85,
+    "tempoChegada": "2024-09-26T16:54:00.000000Z"
+  },
+  {
+    "id": "100",
+    "capacidade": 11.1,
+    "tempoChegada": "2024-09-26T17:00:00.000000Z"
+  }
+]
