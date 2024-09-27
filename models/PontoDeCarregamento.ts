@@ -1,10 +1,12 @@
 import { Caminhao } from "./Caminhao";
 
 export class PontoDeCarregamento {
+  id: string;
   isOcupado: boolean = false;
   capacidadePorHora: number; // Toneladas por hora
 
-  constructor(capacidadePorHora: number) {
+  constructor(id: string, capacidadePorHora: number) {
+    this.id = id;
     this.capacidadePorHora = capacidadePorHora;
   }
 

@@ -47,7 +47,11 @@ export class Simulacao {
 
     if (pontoDisponivel && proximoCaminhao) {
       this.fila.removerCaminhao();
-      const ultimoAtendimento = this.atendimentos[this.atendimentos.length - 1];
+      const atendimentosDoPonto = this.atendimentos.filter(
+        (a) => a.pontoId === pontoDisponivel.id
+      );
+      const ultimoAtendimento =
+        atendimentosDoPonto[atendimentosDoPonto.length - 1];
       const horarioInicio =
         ultimoAtendimento?.fim ?? proximoCaminhao.tempoChegada;
 
@@ -62,24 +66,29 @@ export class Simulacao {
       );
 
       console.log(
-        `[${printTime(horarioInicio)}] Atendimento iniciado: Caminhão ${
-          proximoCaminhao.id
-        } terminará carregamento às ${printTime(horarioFim)}.`
+        `[${printTime(horarioInicio)}] Ponto ${
+          pontoDisponivel.id
+        } ocupado por caminhão ${proximoCaminhao.id}. Terminará às ${printTime(
+          horarioFim
+        )}. `
       );
 
       this.atendimentos.push(
-        new Atendimento(proximoCaminhao, horarioInicio, horarioFim)
+        new Atendimento(
+          proximoCaminhao,
+          pontoDisponivel.id,
+          horarioInicio,
+          horarioFim
+        )
       );
 
       await delay(tempoCarregamentoAjustado);
 
       pontoDisponivel.desocupar();
       console.log(
-        `[${printTime(
-          proximoCaminhao.getTempoSaida()!
-        )}] Ponto de carregamento desocupado por caminhão ${
-          proximoCaminhao.id
-        }.`
+        `[${printTime(proximoCaminhao.getTempoSaida()!)}] Ponto ${
+          pontoDisponivel.id
+        } desocupado por caminhão ${proximoCaminhao.id}.`
       );
 
       await this.processarFila();

@@ -24,7 +24,8 @@ import { Simulacao } from "./models/Simulacao";
 const caminhoes = [
   new Caminhao("1", 10, new Date("2024-09-26T07:00:00.000Z")),
   new Caminhao("2", 10, new Date("2024-09-26T07:10:00.000Z")),
-  new Caminhao("3", 10, new Date("2024-09-26T08:00:00.000Z")),
+  new Caminhao("3", 10, new Date("2024-09-26T07:20:00.000Z")),
+  // new Caminhao("3", 10, new Date("2024-09-26T08:00:00.000Z")),
   // new Caminhao(8, new Date("2024-09-26T08:15:00.000Z")),
   // new Caminhao(10, new Date("2024-09-26T08:45:00.000Z")),
 ];
@@ -33,8 +34,10 @@ const caminhoes = [
 // Um caminhão chega e é atendido em X minutos.
 // O início do atendimento do próximo é feito com base no final do anterior
 
-const ponto1 = new PontoDeCarregamento(20);
-const simulacao = new Simulacao([ponto1], 300); // Taxa de tempo 60: 1 minuto = 1 segundo
+const ponto1 = new PontoDeCarregamento('A', 20);
+const ponto2 = new PontoDeCarregamento('B', 20);
+
+const simulacao = new Simulacao([ponto1, ponto2], 300); // Taxa de tempo 60: 1 minuto = 1 segundo
 simulacao.executar(caminhoes).then(() => {
   console.log("=================RESULTADOS=================");
 
