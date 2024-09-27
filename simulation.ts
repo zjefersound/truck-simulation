@@ -5,6 +5,7 @@ import { Simulacao } from "./models/Simulacao";
 // import data from "./data/small-data.json"; // 10 itens
 // import data from "./data/medium-data.json"; // 50 itens
 import data from "./data/large-data.json"; // 100 itens
+import { printTime } from "./utils/printTime";
 
 // Entidades
 // Caminhão: capacidade em toneladas, tempo de chegada, tempo de carregamento
@@ -47,25 +48,41 @@ const pontos = [
 const simulacao = new Simulacao(pontos, 1200); // Taxa de tempo 60: 1 minuto = 1 segundo
 simulacao.executar(caminhoes).then(() => {
   console.log("=================RESULTADOS=================");
-
+  console.log(`Total de atendimentos: ${simulacao.atendimentos.length}`);
+  console.log(
+    `Início: ${printTime(simulacao.atendimentos[0].inicio)}. Final: ${printTime(
+      simulacao.atendimentos[simulacao.atendimentos.length - 1].fim
+    )}`
+  );
+  console.log(
+    `Tempo total do ciclo: ${simulacao.getTempoTotalDeCiclo()} minutos`
+  );
+  console.log("------------------");
   console.log(
     `Taxa De Chegada: ${simulacao
       .getTaxaDeChegadaDosCaminhoes()
       .toFixed(2)} caminhões por hora`
   );
-  console.log(
-    `Tempo total do ciclo: ${simulacao.getTempoTotalDeCiclo()} minutos`
-  );
   console.log(`Tempo de espera total: ${simulacao.getTempoDeEspera()} minutos`);
   console.log(
     `Tempo de espera médio: ${simulacao.getTempoDeEsperaMedio()} minutos`
   );
+
+  console.log("------------------ Pontos de carregamento ------------------");
+
   const taxasDeUtilizacao = simulacao.getTaxaDeUtilizacaoDosPontos();
+  const temposDeOcupacao = simulacao.getTemposDeOcupacaoPorPonto();
   taxasDeUtilizacao.forEach((taxa, index) => {
+    const tempoUtilizadoEmMinutos = temposDeOcupacao[index] / 1000 / 60;
     console.log(
       `Taxa de utilização do ponto ${simulacao.pontos[index].id}: ${(
         taxa * 100
-      ).toFixed(2)}%`
+      ).toFixed(2)}%. Tempo ocupado: ${
+        simulacao.pontos[index].id
+      }: ${tempoUtilizadoEmMinutos} minutos. Toneladas carregadas: ${(
+        (simulacao.pontos[index].capacidadePorHora * tempoUtilizadoEmMinutos) /
+        60
+      ).toFixed(1)}T`
     );
   });
 });

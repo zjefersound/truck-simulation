@@ -162,4 +162,23 @@ export class Simulacao {
       (tempoOcupado) => tempoOcupado / duracaoSimulacao
     );
   }
+
+  getTemposDeOcupacaoPorPonto(): number[] {
+    return this.pontos.map((ponto) => {
+      const atendimentosDoPonto = this.atendimentos.filter(
+        (a) => a.pontoId === ponto.id
+      );
+
+      const tempoTotalOcupado = atendimentosDoPonto.reduce(
+        (total, atendimento) => {
+          return (
+            total + (atendimento.fim.getTime() - atendimento.inicio.getTime())
+          );
+        },
+        0
+      );
+
+      return tempoTotalOcupado;
+    });
+  }
 }
