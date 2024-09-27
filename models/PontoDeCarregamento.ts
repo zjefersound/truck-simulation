@@ -2,7 +2,7 @@ import { Caminhao } from "./Caminhao";
 
 export class PontoDeCarregamento {
   isOcupado: boolean = false;
-  capacidadePorHora: number; // tonenalas por hora
+  capacidadePorHora: number; // Toneladas por hora
 
   constructor(capacidadePorHora: number) {
     this.capacidadePorHora = capacidadePorHora;
