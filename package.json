@@ -7,7 +7,7 @@
     "start": "ts-node simulation.ts"
   },
   "keywords": [],
-  "author": "Jeferson Santos Moraes de Souza",
+  "author": "Jeferson Santos Moraes de Souza e João Vitor Thomazoni Borrachini",
   "license": "ISC",
   "description": "",
   "devDependencies": {
