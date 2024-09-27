@@ -1,3 +1,4 @@
+import { delay } from "../utils/delay";
 import { printTime } from "../utils/printTime";
 import { Atendimento } from "./Atendimento";
 import { Caminhao } from "./Caminhao";
@@ -19,21 +20,25 @@ export class Simulacao {
     if (caminhoes.length < 2)
       throw new Error("Dados insuficientes! Insira pelo menos 2 caminhões.");
 
-    for (const caminhao of caminhoes) {
+    const promises = caminhoes.map(async (caminhao) => {
       const tempoChegadaAjustado =
         (caminhao.tempoChegada.getTime() -
           caminhoes[0].tempoChegada.getTime()) /
         this.taxaDeTempo;
-      setTimeout(() => {
-        this.fila.adicionarCaminhao(caminhao);
-        console.log(
-          `[${printTime(caminhao.tempoChegada)}] Caminhão ${
-            caminhao.id
-          } adicionado à fila.`
-        );
-        this.processarFila();
-      }, tempoChegadaAjustado);
-    }
+
+      await delay(tempoChegadaAjustado);
+
+      this.fila.adicionarCaminhao(caminhao);
+      console.log(
+        `[${printTime(caminhao.tempoChegada)}] Caminhão ${
+          caminhao.id
+        } adicionado à fila.`
+      );
+      await this.processarFila();
+    });
+
+    await Promise.all(promises);
+    console.log("Simulação concluída.");
   }
 
   async processarFila() {
@@ -66,17 +71,18 @@ export class Simulacao {
         new Atendimento(proximoCaminhao, horarioInicio, horarioFim)
       );
 
-      setTimeout(() => {
-        pontoDisponivel.desocupar();
-        console.log(
-          `[${printTime(
-            proximoCaminhao.getTempoSaida()!
-          )}] Ponto de carregamento desocupado por caminhão ${
-            proximoCaminhao.id
-          }.`
-        );
-        this.processarFila(); // Processa o próximo caminhão
-      }, tempoCarregamentoAjustado);
+      await delay(tempoCarregamentoAjustado);
+
+      pontoDisponivel.desocupar();
+      console.log(
+        `[${printTime(
+          proximoCaminhao.getTempoSaida()!
+        )}] Ponto de carregamento desocupado por caminhão ${
+          proximoCaminhao.id
+        }.`
+      );
+
+      await this.processarFila();
     } else if (proximoCaminhao) {
       console.log(
         `Caminhão ${proximoCaminhao.id} não pôde ser atendido. Pontos ocupados.`

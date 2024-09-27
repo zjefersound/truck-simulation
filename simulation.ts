@@ -35,18 +35,20 @@ const caminhoes = [
 
 const ponto1 = new PontoDeCarregamento(20);
 const simulacao = new Simulacao([ponto1], 300); // Taxa de tempo 60: 1 minuto = 1 segundo
-simulacao.executar(caminhoes);
-// console.log("=================RESULTADOS=================");
+simulacao.executar(caminhoes).then(() => {
+  console.log("=================RESULTADOS=================");
 
-// console.log(
-//   `Taxa De Chegada: ${simulacao
-//     .getTaxaDeChegadaDosCaminhoes()
-//     .toFixed(2)} caminhões por hora`
-// );
-// console.log(
-//   `Tempo total do ciclo: ${simulacao.getTempoTotalDeCiclo()} minutos`
-// );
-// console.log(`Tempo de espera total: ${simulacao.getTempoDeEspera()} minutos`);
-// console.log(
-//   `Tempo de espera médio: ${simulacao.getTempoDeEsperaMedio()} minutos`
-// );
+  console.log(
+    `Taxa De Chegada: ${simulacao
+      .getTaxaDeChegadaDosCaminhoes()
+      .toFixed(2)} caminhões por hora`
+  );
+  console.log(
+    `Tempo total do ciclo: ${simulacao.getTempoTotalDeCiclo()} minutos`
+  );
+  console.log(`Tempo de espera total: ${simulacao.getTempoDeEspera()} minutos`);
+  console.log(
+    `Tempo de espera médio: ${simulacao.getTempoDeEsperaMedio()} minutos`
+  );
+});
+
