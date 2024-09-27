@@ -14,4 +14,7 @@ export class Fila {
   getTamanhoFila(): number {
     return this.caminhoes.length;
   }
+  verProximoCaminhao(): Caminhao | undefined {
+    return this.caminhoes[0];
+  }
 }

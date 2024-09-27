@@ -5,8 +5,8 @@ export class Caminhao {
   inicioCarregamento: Date | null = null; // Hora de início do carregamento
   tempoCarregamento: number | null = null; // Tempo de carregamento em minutos
 
-  constructor(capacidade: number, tempoChegada: Date) {
-    this.id = Math.random().toFixed(4)
+  constructor(id: string, capacidade: number, tempoChegada: Date) {
+    this.id = id;
     this.capacidade = capacidade;
     this.tempoChegada = tempoChegada;
   }

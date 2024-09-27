@@ -15,12 +15,11 @@ export class Simulacao {
     this.taxaDeTempo = taxaDeTempo;
   }
 
-  executar(caminhoes: Caminhao[]) {
+  async executar(caminhoes: Caminhao[]) {
     if (caminhoes.length < 2)
       throw new Error("Dados insuficientes! Insira pelo menos 2 caminhões.");
 
     for (const caminhao of caminhoes) {
-      console.log("----------------------------------");
       this.fila.adicionarCaminhao(caminhao);
       console.log(
         `[${printTime(caminhao.tempoChegada)}] Caminhão ${
@@ -28,40 +27,55 @@ export class Simulacao {
         } adicionado à fila.`
       );
 
-      const pontoDisponivel = this.pontos.find((ponto) => !ponto.isOcupado);
+      this.processarFila();
+    }
+  }
 
-      if (pontoDisponivel) {
-        const ultimoAtendimento =
-          this.atendimentos[this.atendimentos.length - 1];
-        const horarioInicio = ultimoAtendimento?.fim ?? caminhao.tempoChegada;
-        caminhao.iniciarCarregamento(horarioInicio);
-        pontoDisponivel.carregarCaminhao(caminhao);
+  async processarFila() {
+    const pontoDisponivel = this.pontos.find((ponto) => !ponto.isOcupado);
+    const proximoCaminhao = this.fila.verProximoCaminhao();
 
-        const horarioFim = new Date(
-          horarioInicio.getTime() + caminhao.tempoCarregamento! * 60000
-        );
+    if (pontoDisponivel && proximoCaminhao) {
+      this.fila.removerCaminhao();
+      const ultimoAtendimento = this.atendimentos[this.atendimentos.length - 1];
+      const horarioInicio =
+        ultimoAtendimento?.fim ?? proximoCaminhao.tempoChegada;
 
-        console.log(
-          `\t   - Caminhão ${caminhao.id} terminará carregamento às ${printTime(horarioFim)}.`
-        );
+      proximoCaminhao.iniciarCarregamento(horarioInicio);
+      pontoDisponivel.carregarCaminhao(proximoCaminhao);
 
-        this.atendimentos.push(
-          new Atendimento(caminhao, horarioInicio, horarioFim)
-        );
+      const tempoCarregamentoAjustado =
+        proximoCaminhao.tempoCarregamento! * 60000 * (1 / this.taxaDeTempo);
 
+      const horarioFim = new Date(
+        horarioInicio.getTime() + proximoCaminhao.tempoCarregamento! * 60000
+      );
+
+      console.log(
+        `[${printTime(horarioInicio)}] Atendimento iniciado: Caminhão ${
+          proximoCaminhao.id
+        } terminará carregamento às ${printTime(horarioFim)}.`
+      );
+
+      this.atendimentos.push(
+        new Atendimento(proximoCaminhao, horarioInicio, horarioFim)
+      );
+
+      setTimeout(() => {
         pontoDisponivel.desocupar();
         console.log(
-          `[${printTime(caminhao.getTempoSaida()!)}] Ponto de carregamento desocupado por caminhão ${caminhao.id}.`
+          `[${printTime(
+            proximoCaminhao.getTempoSaida()!
+          )}] Ponto de carregamento desocupado por caminhão ${
+            proximoCaminhao.id
+          }.`
         );
-      } else {
-        console.log(
-          `Caminhão ${caminhao.id} não pôde ser atendido porque todos os pontos estão ocupados.`
-        );
-      }
+        this.processarFila(); // Processa o próximo caminhão
+      }, tempoCarregamentoAjustado);
 
-      this.fila.removerCaminhao();
+    } else if (proximoCaminhao) {
       console.log(
-        `[${printTime(caminhao.getTempoSaida()!)}] Caminhão ${caminhao.id} removido da fila após o carregamento.`
+        `Caminhão ${proximoCaminhao.id} não pôde ser atendido. Pontos ocupados.`
       );
     }
   }
@@ -77,6 +91,8 @@ export class Simulacao {
   }
 
   getTempoTotalDeCiclo(): number {
+    if (this.atendimentos.length === 0) return 0;
+
     const inicio = this.atendimentos[0].inicio;
     const fim = this.atendimentos[this.atendimentos.length - 1].fim;
     const duracaoEmMinutos = (fim.getTime() - inicio.getTime()) / (1000 * 60);
